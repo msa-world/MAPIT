@@ -44,8 +44,8 @@ const categories = [
   {
     name: "Cadastral Projects",
     projects: [
-      { title: "Digitization 4", image: "/workfull images for web/Digitization 4.JPG", description: "Cadastral digitization for land records." },
-      { title: "Digitization 5", image: "/workfull images for web/Digitization 5.JPG", description: "Advanced cadastral mapping and digitization." },
+      { title: "Digitization ", image: "/workfull images for web/Digitization 4.JPG", description: "Cadastral digitization for land records." },
+      { title: "Digitization ", image: "/workfull images for web/Digitization 5.JPG", description: "Advanced cadastral mapping and digitization." },
       { title: "County Map for England", image: "/workfull images for web/County Map for England.jpg", description: "County-level cadastral mapping for England." },
       { title: "Cad 1", image: "/workfull images for web/Cad 1.JPG", description: "Cadastral mapping project 1." },
       { title: "Cad 2", image: "/workfull images for web/Cad 2.JPG", description: "Cadastral mapping project 2." },
@@ -63,25 +63,25 @@ const categories = [
     ],
   },
   {
-    name: "Digitizing Worldwide Projects",
+    name: "General Maps",
     projects: [
-      { title: "Australia Heat Map", image: "/workfull images for web/Australia Heat map.jpg", description: "Heat map visualization for Australia." },
-      { title: "Contour Map ISB", image: "/workfull images for web/Contour map ISB.jpg", description: "Contour mapping for Islamabad region." },
-      { title: "Average Rainfall Italy", image: "/workfull images for web/Average annually rainfall map Italy.jpg", description: "Annual rainfall mapping for Italy." },
-      { title: "Cluster Web Maps", image: "/workfull images for web/Cluster web Maps.JPG", description: "Cluster analysis for web-based maps." },
-      { title: "Swat water shed", image: "/workfull images for web/Swat water shed.jpeg", description: "Swat watershed mapping project." },
-      { title: "Temperature Distribution Map", image: "/workfull images for web/Temperature Distribution Map.jpg", description: "Temperature distribution mapping." },
-      { title: "Temperature Map", image: "/workfull images for web/Temperature Map.jpg", description: "Temperature mapping project." },
-      { title: "Temperature Map (jpeg)", image: "/workfull images for web/Temperature Map.jpeg", description: "Temperature mapping project (jpeg)." },
-      { title: "Recreation of history map of Kurdistan", image: "/workfull images for web/Recreation of history map of Kurdistan.jpg", description: "Historical map recreation for Kurdistan." },
-      { title: "ARKANSAS Tornado Trend Analysis", image: "/workfull images for web/ARKANSAS Tornado Trend Analysis 1950-2020.png", description: "Trend analysis for tornadoes in Arkansas." },
-      { title: "ARKANSAS_Trend_1950-2020", image: "/workfull images for web/ARKANSAS_Trend_1950-2020.jpg", description: "Trend analysis for Arkansas tornadoes (1950-2020)." },
-      { title: "arizona-backpacking", image: "/workfull images for web/arizona-backpacking.jpg", description: "Arizona backpacking mapping project." },
-      { title: "bubble Chart", image: "/workfull images for web/bubble Chart.jpg", description: "Bubble chart mapping project." },
-      { title: "portfolio-1", image: "/workfull images for web/portfolio-1.jpg", description: "Portfolio project 1." },
-      { title: "portfolio-3", image: "/workfull images for web/portfolio-3.jpg", description: "Portfolio project 3." },
-      { title: "portfolio-11", image: "/workfull images for web/portfolio-11.jpg", description: "Portfolio project 11." },
-      { title: "USA Tornado Trend Analysis 1950-2020", image: "/workfull images for web/USA Tornado Trend Analysis 1950-2020.png", description: "USA tornado trend analysis (1950-2020)." },
+      { title: "Australia Heat Map", image: "/workfull images for web/Australia Heat map.jpg", description: "General heat map visualization for Australia." },
+      { title: "Contour Map ISB", image: "/workfull images for web/Contour map ISB.jpg", description: "General contour mapping for Islamabad region." },
+      { title: "Average Rainfall Italy", image: "/workfull images for web/Average annually rainfall map Italy.jpg", description: "General annual rainfall mapping for Italy." },
+      { title: "Cluster Web Maps", image: "/workfull images for web/Cluster web Maps.JPG", description: "General cluster analysis for web-based maps." },
+      { title: "Swat Watershed Map", image: "/workfull images for web/Swat water shed.jpeg", description: "General watershed mapping for Swat region." },
+      { title: "Temperature Distribution Map", image: "/workfull images for web/Temperature Distribution Map.jpg", description: "General temperature distribution mapping." },
+      { title: "Temperature Map", image: "/workfull images for web/Temperature Map.jpg", description: "General temperature mapping project." },
+      { title: "Temperature Map (jpeg)", image: "/workfull images for web/Temperature Map.jpeg", description: "General temperature mapping (jpeg)." },
+      { title: "Kurdistan History Map", image: "/workfull images for web/Recreation of history map of Kurdistan.jpg", description: "General historical map recreation for Kurdistan." },
+      { title: "Arkansas Tornado Trend Analysis", image: "/workfull images for web/ARKANSAS Tornado Trend Analysis 1950-2020.png", description: "General trend analysis for tornadoes in Arkansas." },
+      { title: "Arkansas Trend 1950-2020", image: "/workfull images for web/ARKANSAS_Trend_1950-2020.jpg", description: "General trend analysis for Arkansas tornadoes (1950-2020)." },
+      { title: "Arizona Backpacking Map", image: "/workfull images for web/arizona-backpacking.jpg", description: "General backpacking mapping for Arizona." },
+      { title: "Bubble Chart Map", image: "/workfull images for web/bubble Chart.jpg", description: "General bubble chart mapping project." },
+      { title: "Portfolio Map 1", image: "/workfull images for web/portfolio-1.jpg", description: "General portfolio map project 1." },
+      { title: "Portfolio Map 3", image: "/workfull images for web/portfolio-3.jpg", description: "General portfolio map project 3." },
+      { title: "Portfolio Map 11", image: "/workfull images for web/portfolio-11.jpg", description: "General portfolio map project 11." },
+      { title: "USA Tornado Trend Analysis 1950-2020", image: "/workfull images for web/USA Tornado Trend Analysis 1950-2020.png", description: "General USA tornado trend analysis (1950-2020)." },
     ],
   },
 ];
@@ -120,9 +120,28 @@ const HeroSection = () => {
   );
 };
 
-const ProjectCard = ({ project }: { project: any }) => (
-  <section className="bg-surface-dark rounded-2xl shadow-xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-primary/40 animate-fade-in flex flex-col border border-primary/20 mb-8">
-    <img src={project.image} alt={project.title} className="w-full h-56 object-cover object-center border-b-2 border-primary" />
+const FullscreenIcon = ({ onClick }: { onClick: () => void }) => (
+  <button
+    onClick={onClick}
+    aria-label="View Fullscreen"
+    className="absolute top-3 right-3 bg-black/60 hover:bg-black/80 rounded-full p-2 z-20 transition-colors"
+    style={{ lineHeight: 0 }}
+  >
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+      <path d="M8 3H5a2 2 0 0 0-2 2v3" />
+      <path d="M16 3h3a2 2 0 0 1 2 2v3" />
+      <path d="M8 21H5a2 2 0 0 1-2-2v-3" />
+      <path d="M16 21h3a2 2 0 0 0 2-2v-3" />
+    </svg>
+  </button>
+);
+
+const ProjectCard = ({ project, onFullscreen }: { project: any, onFullscreen: () => void }) => (
+  <section className="bg-surface-dark rounded-2xl shadow-xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-primary/40 animate-fade-in flex flex-col border border-primary/20 mb-8 relative">
+    <div className="relative">
+      <img src={project.image} alt={project.title} className="w-full h-56 object-cover object-center border-b-2 border-primary" />
+      <FullscreenIcon onClick={onFullscreen} />
+    </div>
     <div className="p-6 flex-1 flex flex-col justify-between">
       <h3 className="text-2xl font-bold text-primary mb-3 animate-slide-up">{project.title}</h3>
       <p className="text-base text-muted-foreground mb-3 animate-fade-in">{project.description}</p>
@@ -134,6 +153,7 @@ const ProjectCard = ({ project }: { project: any }) => (
 const CategorySection = ({ category }: { category: any }) => {
   const [visibleCount, setVisibleCount] = useState(3);
   const [expanded, setExpanded] = useState(false);
+  const [fullscreenProject, setFullscreenProject] = useState<null | any>(null);
   const projectsGridRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -191,12 +211,16 @@ const CategorySection = ({ category }: { category: any }) => {
       setTimeout(scrollToFirst, 100);
     }
   };
+
+  // Modal for fullscreen map
+  const closeModal = () => setFullscreenProject(null);
+
   return (
     <section ref={sectionRef} className="mb-20">
       <h2 className="text-3xl md:text-4xl font-bold text-primary mb-10 animate-fade-in text-center">{category.name}</h2>
       <div ref={projectsGridRef} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
         {category.projects.slice(0, visibleCount).map((project: any, idx: number) => (
-          <ProjectCard key={idx} project={project} />
+          <ProjectCard key={idx} project={project} onFullscreen={() => setFullscreenProject(project)} />
         ))}
       </div>
       <div className="flex justify-center mt-10 gap-4">
@@ -207,6 +231,25 @@ const CategorySection = ({ category }: { category: any }) => {
           <Button onClick={hideMore} className="bg-muted text-primary px-7 py-2 font-semibold rounded-full shadow-lg hover:bg-muted/80 transition-all">Hide</Button>
         )}
       </div>
+
+      {/* Fullscreen Modal */}
+      {fullscreenProject && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm">
+          <div className="relative bg-surface-dark rounded-2xl shadow-2xl max-w-2xl w-full mx-4 p-6 animate-fade-in flex flex-col items-center">
+            <button
+              onClick={closeModal}
+              className="absolute top-3 right-3 text-white bg-black/60 hover:bg-black/80 rounded-full p-2 z-20"
+              aria-label="Close Fullscreen"
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <img src={fullscreenProject.image} alt={fullscreenProject.title} className="w-full max-h-96 object-contain rounded-xl mb-6 border border-primary" />
+            <h3 className="text-3xl font-bold text-primary mb-3 text-center">{fullscreenProject.title}</h3>
+            <p className="text-base text-muted-foreground mb-3 text-center">{fullscreenProject.description}</p>
+            <p className="text-xs text-muted-foreground text-center">This project demonstrates our expertise in spatial analysis, data visualization, and innovative mapping solutions tailored for client needs.</p>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
